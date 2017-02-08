@@ -141,6 +141,11 @@ $
 ~~~
 {: .bash}
 
+IPython distinguishes commands from Python objects using the `%` symbol. So
+`%run` means run the Python program supplied as an argument. IPython calls
+these _magic_ commands and provides many different commands. To see a list of
+the available commands, use `%lsmagic`.
+
 > ## Tab Completion
 >
 > Tab completion, especially for attributes, is a convenient way to explore the
@@ -155,11 +160,6 @@ $
 > Besides Python objects and keywords, tab completion also works on file and
 > directory names.
 {: .callout}
-
-IPython distinguishes commands from Python objects using the `%` symbol. So
-`%run` means run the Python program supplied as an argument. IPython calls
-these _magic_ commands and provides many different commands. To see a list of
-the available commands, use `%lsmagic`.
 
 > ## %automagic
 >
@@ -180,14 +180,49 @@ the available commands, use `%lsmagic`.
 > object. Use `??` to get even more information.
 {: .callout}
 
-## History
+### History
 
-IPython stores both the commands you enter, and the results that are produced. It does *not* store the
+IPython stores both the commands you enter, and the results that are produced. Only results from
+statements or functions that are not assigned to variables are stored. It does *not* store the
 output from `print` statements! You can easily go through previous 
 commands with the up- and down-arrow keys, or access your history in more sophisticated ways.
 
-Input and output history are kept in variables called `In` and `Out`, keyed by the prompt numbers, e.g. `In[4]`. 
-The last three objects in output history are also kept in variables named `_`, `__` and `___`.
+Input and output history are kept in variables called `In` and `Out`, keyed by the prompt numbers, e.g. `In[4]`
+and `Out[3]`. The last three objects in output history are also kept in variables named `_`, `_ _` and `_ _ _`. 
+You can treat these like any other Python variables, use them in expressions, etc.
+
+~~~
+$ ipython
+Python 3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 4.2.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In  [1]: [1, 2, 3]
+Out [1]: [1, 2, 3]
+
+In  [2]: var=33
+
+In  [3]: print(var)
+33
+
+In  [4]: print(In[1])
+[1, 2, 3]
+
+In  [5]: map(lambda x: x*2, 'ABC')
+Out [5]: <map at 0x10410f208>
+
+In  [6]: print(list(Out[5]))
+['AA', 'BB', 'CC']
+
+In  [7]: exit
+$
+~~~
+{: .bash}
 
 You can use the `%history` magic function to examine past input and output. Input history from previous 
 sessions is saved in a database, and IPython can be configured to save output history.
@@ -195,17 +230,50 @@ sessions is saved in a database, and IPython can be configured to save output hi
 Several other magic functions can use your input history, including `%edit`, `%rerun`, `%recall`, `%macro`, 
 `%save` and `%pastebin`.
 
-## System Shell Commands
+### System Shell Commands
 
-To run any command at the system shell, simply prefix it with `!`, e.g.:
+It is possible to run any shell command from within IPython by prefixing the command with `!`. The output
+from the command can also be captured by simply assigning it to a variable. Variables can also be passed to
+the shell commands by prefixing the variable with a `$`. The following example shows each of these
+features being used.
 
-`!ping google.com`
+~~~
+$ ipython
+Python 3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12) 
+Type "copyright", "credits" or "license" for more information.
 
-You can capture the output, assign the command to a variable, e.g:
+IPython 4.2.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
 
-`files = !ls`
+In  [1]: !ping -c 1 google.com
+PING google.com (172.217.1.78): 56 data bytes
+64 bytes from 172.217.1.78: icmp_seq=0 ttl=56 time=14.319 ms
 
-To pass the values of Python variables or expressions to system commands, prefix them with `$`, e.g.: 
+--- google.com ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 14.319/14.319/14.319/0.000 ms
 
-`!grep -rF $pattern ipython`
+In  [2]: files = !ls
+
+In  [3]: print(files[2])
+Desktop
+
+In  [4]: file = files[2]
+
+In  [5]: !ls -l $file
+total 97912
+drwxr-xr-x@ 13 user  1551083765       442 Jan 25 17:06 data-shell
+-rw-r--r--@  1 user  1551083765    230351 Sep 29 22:13 doc.pages
+drwxr-xr-x   4 user  1551083765       136 Jun 28  2016 iOSBackup
+-rw-------@  1 user  1551083765     41221 Jan 26 09:57 logo.png
+drwxr-xr-x  28 user  1551083765       952 Feb  6 16:22 make-lesson
+-rw-r--r--@  1 user  1551083765     20097 Apr 26  2016 matmul.png
+
+In  [6]: exit
+$
+~~~
+{: .bash}
 

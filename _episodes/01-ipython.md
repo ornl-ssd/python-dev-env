@@ -3,338 +3,168 @@ title: "IPython"
 teaching: 15
 exercises: 15
 questions:
-- "How can I make my results easier to reproduce?"
+- "How can I use IPython for developing programs"
 objectives:
-- "Explain what Make is for."
-- "Explain why Make differs from shell scripts."
-- "Name other popular build tools."
+- "Explain what IPython is for."
+- "Demonstrate key features of IPython."
 keypoints:
-- "Make allows us to specify what depends on what and how to update things that are out of date."
+- "IPython provides an interactive environment for developing Python programs"
 ---
 
-Let's imagine that we're interested in
-testing Zipf's Law in some of our favorite books.
+IPython is an interactive shell for the Python programming language that offers
+enhanced introspection, additional shell syntax, tab completion and rich
+history.
 
-> ## Zipf's Law
+To start IPython, type the `ipython` command in a terminal window.
+
+~~~
+$ ipython
+Python 3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 4.2.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: 
+~~~
+{: .bash}
+
+> ## Exiting IPython
 >
-> The most frequently-occurring word occurs approximately twice as
-> often as the second most frequent word. This is [Zipf's Law][zipfs-law].
+> To exit IPython and return to the shell, type `exit` whenever
+> a prompt is visible. You'll need to do this in order to
+> edit a Python script with a text editor.
+>
+> ~~~
+> In [1]: exit
+> $
+> ~~~
+> {: .bash}
 {: .callout}
 
-We've compiled our raw data, the books we want to analyze
-(check out e.g. `head books/isles.txt`)
-and have prepared several C++ and Python programs that together make up our
-analysis pipeline.
-
-Our directory has the C++ and Python programs and data files we
-we will be working with:
+IPython can be used to write Python programs interactively, however the more usual
+workflow is to use a text editor to edit your code, save the file, and load and run it 
+in IPython. You do this with the `%run` command. Let's start by creating a simple
+Python program:
 
 ~~~
-|- books
-|  |- abyss.txt
-|  |- isles.txt
-|  |- last.txt
-|  |- LICENSE_TEXTS.md
-|  |- sierra.txt
-|- main.cpp
-|- plotcount.py
-|- wordcount.cpp
-|- wordcount.h
-|- zipf_test.py
-~~~
-{: .output}
-
-The first step is to count the frequency of each word in a book. In order to do this we need to compile
-the wordcount.cpp program. Assuming your C++ compiler is invoked using the `c++` command, you would do
-somthing like this:
-
-~~~
-c++ --std=c++11 -o wordcount wordcount.cpp main.cpp
+$ nano simple.py 
+$ cat simple.py
+def fib(n):
+   if n <= 1:
+       return n
+   else:
+       return(fib(n-1) + fib(n-2))
+    
+if __name__ == "__main__":
+   for i in range(10):
+       print(fib(i))
 ~~~
 {: .bash}
 
-This should result in an executable program called `wordcount`. This program can now be run as follows:
+Now it can be run in IPython using `%run`:
 
 ~~~
-$ ./wordcount books/isles.txt > isles.dat
-~~~
-{: .bash}
+$ ipython 
+Python 3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12) 
+Type "copyright", "credits" or "license" for more information.
 
-Let's take a quick peek at the result.
+IPython 4.2.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
 
-~~~
-$ head -5 isles.dat
-~~~
-{: .bash}
+In [1]: %run simple.py
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
 
-This shows us the top 5 lines in the output file:
-
-~~~
-the 3822 6.7579
-of 2460 4.34967
-and 1721 3.043
-to 1479 2.61511
-a 1307 2.31098
-~~~
-{: .output}
-
-We can see that the file consists of one row per word.
-Each row shows the word itself, the number of occurrences of that
-word, and the number of occurrences as a percentage of the total
-number of words in the text file.
-
-We can do the same thing for a different book:
-
-~~~
-$ ./wordcount books/abyss.txt > abyss.dat
-$ head -5 abyss.dat
+In [2]: exit
+$
 ~~~
 {: .bash}
 
-~~~
-the 4021 6.46546
-and 2792 4.48932
-of 1899 3.05345
-a 1555 2.50032
-to 1495 2.40385
-~~~
-{: .output}
-
-Let's visualize the results.
-The script `plotcount.py` reads in a data file and plots the 10 most
-frequently occurring words as a text-based bar plot:
+It is also possible to pass variables defined in the IPython environment to
+the program using the `%run -i` command. If we change the code to:
 
 ~~~
-$ python plotcount.py isles.dat ascii
-~~~
-{: .bash}
-
-~~~
-the   ########################################################################
-of    ##############################################
-and   ################################
-to    ############################
-a     #########################
-in    ###################
-is    #################
-that  ############
-by    ###########
-it    ###########
-~~~
-{: .output}
-
-`plotcount.py` can also show the plot graphically:
-
-~~~
-$ python plotcount.py isles.dat show
+$ nano simple.py 
+$ cat simple.py
+def fib(n):
+   if n <= 1:
+       return n
+   else:
+       return(fib(n-1) + fib(n-2))
+    
+if __name__ == "__main__":
+   for i in range(num_values): # get num_values from IPython
+       print(fib(i))
 ~~~
 {: .bash}
 
-Close the window to exit the plot.
+The we can set the `num_values` variable with IPython:
 
-`plotcount.py` can also create the plot as an image file (e.g. a PNG file):
+$ ipython 
+Python 3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12) 
+Type "copyright", "credits" or "license" for more information.
 
-~~~
-$ python plotcount.py isles.dat isles.png
-~~~
-{: .bash}
+IPython 4.2.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
 
-Finally, let's test Zipf's law for these books:
+In [1]: num_values=5
 
-~~~
-$ python zipf_test.py abyss.dat isles.dat
-~~~
-{: .bash}
+In [2]: %run -i simple.py
+0
+1
+1
+2
+3
 
-~~~
-Book	First	Second	Ratio
-abyss	4021	2792	1.44
-isles	3822	2460	1.55
-~~~
-{: .output}
-
-So we're not too far off from Zipf's law.
-
-Together these scripts implement a common workflow:
-
-1. Read a data file.
-2. Perform an analysis on this data file.
-3. Write the analysis results to a new file.
-4. Plot a graph of the analysis results.
-5. Save the graph as an image, so we can put it in a paper.
-6. Make a summary table of the analyses
-
-Running `wordcount` and `plotcount.py` at the shell prompt, as we
-have been doing, is fine for one or two files. If, however, we had 5
-or 10 or 20 text files,
-or if the number of steps in the pipeline were to expand, this could turn into
-a lot of work.
-Plus, no one wants to sit and wait for a command to finish, even just for 30
-seconds. Also if we need to make a change to `wordcount`, we have to remember
-the command we used to compile it.
-
-The most common solution to the tedium of data processing is to write
-a shell script that runs the whole pipeline from start to finish.
-
-Using your text editor of choice (e.g. nano), add the following to a new file named
-`run_pipeline.sh`.
-
-~~~
-# USAGE: bash run_pipeline.sh [need_to_compile]
-# to produce plots for isles and abyss
-# and the summary table for the Zipf's law tests
-
-if [ $# -gt 0 ]; then
-  if [ $1 = "need-to-compile" ]; then
-    c++ --std=c++11 -o wordcount wordcount.cpp main.cpp
-  fi
-fi
-
-./wordcount books/isles.txt > isles.dat
-./wordcount books/abyss.txt > abyss.dat
-
-python plotcount.py isles.dat isles.png
-python plotcount.py abyss.dat abyss.png
-
-# Generate summary table
-python zipf_test.py abyss.dat isles.dat > results.txt
+In [3]: exit
+$ 
 ~~~
 {: .bash}
 
-Run the script and check that the output is the same as before:
-
-~~~
-$ bash run_pipeline.sh
-~~~
-{: .bash}
-
-This shell script solves several problems in computational reproducibility:
-
-1.  It explicitly documents our pipeline,
-    making communication with colleagues (and our future selves) more efficient.
-2.  It allows us to type a single command, `bash run_pipeline.sh`, to
-    reproduce the full analysis.
-3.  It prevents us from _repeating_ typos or mistakes.
-    You might not get it right the first time, but once you fix something
-    it'll stay fixed.
-
-Despite these benefits it has a few shortcomings.
-
-Let's adjust the width of the bars in our plot produced by `plotcount.py`.
-
-Edit `plotcount.py` so that the bars are 0.8 units wide instead of 1 unit.
-(Hint: replace `width = 1.0` with `width = 0.8` in the definition of
-`plot_word_counts`.)
-
-Now we want to recreate our figures.
-We _could_ just `bash run_pipeline.sh` again.
-That would work, but it could also be a big pain if counting words takes
-more than a few seconds.
-The word counting routine hasn't changed; we shouldn't need to recreate
-those files.
-
-Alternatively, we could manually rerun the plotting for each word-count file.
-(Experienced shell scripters can make this easier on themselves using a
-for-loop.)
-
-~~~
-for book in abyss isles; do
-    python plotcount.py $book.dat $book.png
-done
-~~~
-{: .bash}
-
-With this approach, however,
-we don't get many of the benefits of having a shell script in the first place.
-
-Another popular option is to comment out a subset of the lines in
-`run_pipeline.sh`:
-
-~~~
-# USAGE: bash run_pipeline.sh
-# to produce plots for isles and abyss
-# and the summary table for the Zipf's law tests
-
-if [ $# -gt 0 ]; then
-  if [ $1 = "need-to-compile" ]; then
-    c++ --std=c++11 -o wordcount wordcount.cpp main.cpp
-  fi
-fi
-
-# These lines are commented out because they don't need to be rerun.
-#./wordcount books/isles.txt > isles.dat
-#./wordcount books/abyss.txt > abyss.dat
-
-python plotcount.py isles.dat isles.png
-python plotcount.py abyss.dat abyss.png
-
-# This line is also commented out because it doesn't need to be rerun.
-python zipf_test.py abyss.dat isles.dat > results.txt
-~~~
-{: .bash}
-
-Then, we would run our modified shell script using `bash run_pipeline.sh`.
-
-But commenting out these lines, and subsequently uncommenting them,
-can be a hassle and source of errors in complicated pipelines.
-
-Another problem is knowing if we need to recompile `wordcount`. How do we know
-if `wordcount.cpp` or `main.cpp` have changed so that we need to add the `need-to-compile`
-option to the script?
-
-What we really want is an executable _description_ of our pipeline that
-allows software to do the tricky part for us:
-figuring out what steps need to be rerun.
-
-Make was developed by
-Stuart Feldman in 1977 as a Bell Labs summer intern, and remains in
-widespread use today. Make can execute the commands needed to run our
-analysis and plot our results. Like shell scripts it allows us to
-execute complex sequences of commands via a single shell
-command. Unlike shell scripts it explicitly records the dependencies
-between files - what files are needed to create what other files -
-and so can determine when to recreate our data files or
-image files, if our text files change. Make can be used for any
-commands that follow the general pattern of processing files to create
-new files, for example:
-
-* Run analysis scripts on raw data files to get data files that
-  summarize the raw data (e.g. creating files with word counts from book text).
-* Run visualization scripts on data files to produce plots
-  (e.g. creating images of word counts).
-* Parse and combine text files and plots to create papers.
-* Compile source code into executable programs or libraries.
-
-There are now many build tools available, for example [Apache
-ANT][apache-ant], [doit][doit], and [nmake][nmake] for Windows. There
-are also build tools that build scripts for use with these build tools
-and others e.g. [GNU Autoconf][autoconf] and [CMake][cmake]. Which is
-best for you depends on your requirements, intended usage, and
-operating system. However, they all share the same fundamental
-concepts as Make.
-
-> ## Why Use Make if it is Almost 40 Years Old?
+> ## Tab Completion
 >
-> Today, researchers working with legacy codes in C or FORTRAN, which
-> are very common in high-performance computing, will, very likely
-> encounter Make.
+> Tab completion, especially for attributes, is a convenient way to explore the
+> structure of any object you’re dealing with.
 >
-> Researchers are also finding Make of use in implementing
-> reproducible research workflows, automating data analysis and
-> visualisation (using Python or R) and combining tables and plots
-> with text to produce reports and papers for publication.
+> To use completion, type a pattern you would like the shell to match,
+> followed by the `Tab` key. 
 >
-> Make's fundamental concepts are common across build tools.
+> For example, to view an object's attributes, type `object_name.` followed
+> by the `Tab` key.
+> 
+> Besides Python objects and keywords, tab completion also works on file and
+> directory names.
 {: .callout}
 
-[GNU Make][gnu-make] is a free, fast, well-documented, and very popular
-Make implementation. From now on, we will focus on it, and when we say
-Make, we mean GNU Make.
+IPython distinguishes commands from Python objects using the `%` symbol. So
+`%run` means run the Python program supplied as an argument. IPython calls
+these _magic_ commands and provides many different commands. To see a list of
+the available commands, use `%lsmagic`.
 
-[autoconf]: http://www.gnu.org/software/autoconf/autoconf.html
-[apache-ant]: http://ant.apache.org/
-[cmake]: http://www.cmake.org/
-[doit]: http://pydoit.org/
-[gnu-make]: http://www.gnu.org/software/make/
-[nmake]: https://msdn.microsoft.com/en-us/library/dd9y37ha.aspx
-[zipfs-law]: http://en.wikipedia.org/wiki/Zipf%27s_law
+> ## %automagic
+>
+> By default, IPython will assume a command is a magic command unless there is a
+> corresponding Python object with the same name. This means that it is possible to 
+> enter magic commands without the `%` most of the time. The `%automagic` option toggles between this
+> behavior and requiring a `%` to be present if the command is a magic command.
+{: .callout}
+
+

@@ -113,8 +113,9 @@ if __name__ == "__main__":
 ~~~
 {: .bash}
 
-The we can set the `num_values` variable with IPython:
+The we can set the `num_values` variable interactively in IPython, then run the program.
 
+~~~
 $ ipython 
 Python 3.5.2 |Anaconda custom (x86_64)| (default, Jul  2 2016, 17:52:12) 
 Type "copyright", "credits" or "license" for more information.

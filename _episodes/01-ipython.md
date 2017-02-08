@@ -168,4 +168,43 @@ the available commands, use `%lsmagic`.
 > behavior and requiring a `%` to be present if the command is a magic command.
 {: .callout}
 
+> ## Getting Help
+>
+> Typing '?' on its own will show an introduction and overview of IPython’s features.
+>
+> The `%quickref` command shows a *quick reference card* with a lot of useful information
+> about IPython magic commands.
+>
+> Typing an object name followed by a `?` (i.e. `object?`) will show information about the
+> object. Use `??` to get even more information.
+{: .callout}
+
+## History
+
+IPython stores both the commands you enter, and the results that are produced. It does *not* store the
+output from `print` statements! You can easily go through previous 
+commands with the up- and down-arrow keys, or access your history in more sophisticated ways.
+
+Input and output history are kept in variables called `In` and `Out`, keyed by the prompt numbers, e.g. `In[4]`. 
+The last three objects in output history are also kept in variables named `_`, `__` and `___`.
+
+You can use the `%history` magic function to examine past input and output. Input history from previous 
+sessions is saved in a database, and IPython can be configured to save output history.
+
+Several other magic functions can use your input history, including `%edit`, `%rerun`, `%recall`, `%macro`, 
+`%save` and `%pastebin`.
+
+## System Shell Commands
+
+To run any command at the system shell, simply prefix it with `!`, e.g.:
+
+`!ping google.com`
+
+You can capture the output, assign the command to a variable, e.g:
+
+`files = !ls`
+
+To pass the values of Python variables or expressions to system commands, prefix them with `$`, e.g.: 
+
+`!grep -rF $pattern ipython`
 

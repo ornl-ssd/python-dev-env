@@ -13,7 +13,8 @@ keypoints:
 
 IPython is an interactive shell for the Python programming language that offers
 enhanced introspection, additional shell syntax, tab completion and rich
-history.
+history. A good source of documentation for IPython can be found 
+[here](http://ipython.readthedocs.io/en/stable/index.html).
 
 To start IPython, type the `ipython` command in a terminal window.
 

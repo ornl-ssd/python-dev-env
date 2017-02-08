@@ -41,9 +41,11 @@ To start, we're going to first switch to the PyDev *perspective*, which is an ar
 are designed to assist Python development. To do this, go to the **Quick Access**  box in the top right corner, and 
 type "pydev". Choose the PyDev perspective from the list.
 
-If this is the first time you've used PyDev, then you will see a dialog pop up like the one below:
+If this is the first time you've used PyDev, then you may see a dialog pop up like the one below:
 
 ![Python not configured dialog]({{ site.github.url }}/fig/03-pydev-dialog.png)
+
+Don't panic! This is just PyDev telling you that it needs to configure the Python environment.
 
 ### Your First Project
 

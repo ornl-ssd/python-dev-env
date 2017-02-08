@@ -43,7 +43,7 @@ type "pydev". Choose the PyDev perspective from the list.
 
 If this is the first time you've used PyDev, then you will see a dialog pop up like the one below:
 
-![Python not configured dialog]({{ site.github.url }}/fig/03-pydev-dialog)
+![Python not configured dialog]({{ site.github.url }}/fig/03-pydev-dialog.png)
 
 ### Your First Project
 

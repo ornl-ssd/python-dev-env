@@ -43,7 +43,7 @@ type "pydev". Choose the PyDev perspective from the list.
 
 If this is the first time you've used PyDev, then you may see a dialog pop up like the one below:
 
-![Python not configured dialog]({{ site.github.url }}/fig/03-pydev-dialog.png){width="50%"}
+<img src="{{ site.github.url }}/fig/03-pydev-dialog.png" width="50%"/>
 
 Don't panic! This is just PyDev telling you that it needs to configure the Python environment. If you're using Anaconda,
 then you'll need to select the **Manual Config** button. This will open the PyDev Python interpreter preference page as

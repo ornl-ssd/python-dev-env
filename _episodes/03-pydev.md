@@ -90,7 +90,28 @@ Clicking on the small triangle to the left of the project will open it. Notice t
 you will see a reference to the "anaconda" interpreter we configured earlier. Opening this will show configuration
 information used by the interpreter.
 
-<img src="{{ site.github.url }}/fig/03-pydev-first.png""/>
+<img src="{{ site.github.url }}/fig/03-pydev-first.png/">
+
+Before creating a Python source file (called a *module* in Python terminology), you first must create a *package*.
+The modules you create will then reside in this package. To create the package, make sure you have the project selected
+in the Packager Explorer view, then select **File** > **New** > **PyDev Package**. If the **Source Folder** field
+is empty, then you didn't have the project selected (in which case, you can just manually enter "/my_project"). Now
+enter a package name (e.g. "my_package") into the **Name** field and select **Finish**.
+
+<img src="{{ site.github.url }}/fig/03-pydev-package.png/">
+
+You will now see the new package has been created in the Package Explorer. It is also automatically created
+an `__init__.py` module for the package (see [Packages](https://docs.python.org/3/tutorial/modules.html#packages) 
+for more details.)
+
+
+
+## Python packages
+>
+> Packages provide an important way of structuring Python's module (file) namespace, and are how virtually all
+> Python libraries are distributed. It is good practice to always structure your Python code using packages. That
+> way, even small programs can be easily distributed and reused.
+{: .callout}
 
 ### Editor Features
 

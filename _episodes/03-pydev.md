@@ -90,7 +90,7 @@ Clicking on the small triangle to the left of the project will open it. Notice t
 you will see a reference to the "anaconda" interpreter we configured earlier. Opening this will show configuration
 information used by the interpreter.
 
-<img src="{{ site.github.url }}/fig/03-pydev-first.png/">
+<img src="{{ site.github.url }}/fig/03-pydev-first.png">
 
 Before creating a Python source file (called a *module* in Python terminology), you first must create 
 one or more *packages*. The modules you create will then reside in these packages. To create a package, 
@@ -98,7 +98,7 @@ make sure you have the project selected in the Packager Explorer view, then sele
 If the **Source Folder** field is empty, then you didn't have the project selected (in which case, you can just 
 manually enter "/my_project"). Now enter a package name (e.g. "my_package") into the **Name** field and select **Finish**.
 
-<img src="{{ site.github.url }}/fig/03-pydev-package.png/">
+<img src="{{ site.github.url }}/fig/03-pydev-package.png">
 
 You will now see the new package has been created in the Package Explorer. It is also automatically created
 an `__init__.py` module for the package (see [Packages](https://docs.python.org/3/tutorial/modules.html#packages) 
@@ -115,12 +115,12 @@ Package Explorer, then use **File** > **New** > **PyDev Package** to create the 
 Modules must be created within a package, so select a package in the Package Explorer from the ones you have created,
 the use **File** > **New** > **PyDev Module**. Give the module a name (without the trailing `.py`) and click on **Finish**.
 
-<img src="{{ site.github.url }}/fig/03-pydev-module.png/">
+<img src="{{ site.github.url }}/fig/03-pydev-module.png">
 
 PyDev will now give you the opportunity to select from a predefined set of module templates. These templates provide an
 easy way to create a module based on boilerplate code. You can also add your own templates if you desire.
 
-<img src="{{ site.github.url }}/fig/03-pydev-template.png/">
+<img src="{{ site.github.url }}/fig/03-pydev-template.png">
 
 You can either select one of the templates from the list, or just hit **OK** and a new editor window will open on the module.
 

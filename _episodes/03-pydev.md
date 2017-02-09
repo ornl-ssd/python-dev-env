@@ -41,19 +41,21 @@ To start, we're going to first switch to the PyDev *perspective*, which is an ar
 are designed to assist Python development. To do this, go to the **Quick Access**  box in the top right corner, and 
 type "pydev". Choose the PyDev perspective from the list.
 
-If this is the first time you've used PyDev, then you may see a dialog pop up like the one below:
+If this is the first time you've used PyDev, then you may see a dialog pop up like the one below. Don't panic! 
+This is just PyDev telling you that it needs to configure the Python environment. If you're using Anaconda, 
+then you'll need to select the **Manual Config** button.
 
 <img src="{{ site.github.url }}/fig/03-pydev-dialog.png" width="50%"/>
 
-Don't panic! This is just PyDev telling you that it needs to configure the Python environment. If you're using Anaconda,
-then you'll need to select the **Manual Config** button. This will open the PyDev Python interpreter preference page as
-shown below:
+This will open the PyDev Python interpreter preference page as shown below. Now click on the **New** button.
 
 <img src="{{ site.github.url }}/fig/03-pydev-prefs.png" width="50%"/>
 
-Next, click on the **New** button and you should see another dialog asking you to select the interpreter. Enter a name
+You should now see another dialog asking you to select the interpreter. Enter a name
 (anything can be used here, e.g. "anaconda"), then click the **Browse...**. Navigate to the installation location for
-Anaconda, then select the `python` program in the `bin` directory. You can see this below:
+Anaconda, then select the `python` program in the `bin` directory. The image below
+shows the dialog after the `python` progam was selected. PyDev worked out that this was 
+Python 3.5 and changed the path to correspond to this version.
 
 <img src="{{ site.github.url }}/fig/03-pydev-interpreter.png" width="50%"/>
 

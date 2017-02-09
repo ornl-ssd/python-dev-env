@@ -51,7 +51,7 @@ shown below:
 
 <img src="{{ site.github.url }}/fig/03-pydev-prefs.png" width="50%"/>
 
-Next, click on the **New* button and you should see another dialog asking you to select the interpreter. Enter a name
+Next, click on the **New** button and you should see another dialog asking you to select the interpreter. Enter a name
 (anything can be used here, e.g. "anaconda"), then click the **Browse...**. Navigate to the installation location for
 Anaconda, then select the `python` program in the `bin` directory. You can see this below:
 

@@ -90,7 +90,7 @@ Clicking on the small triangle to the left of the project will open it. Notice t
 you will see a reference to the "anaconda" interpreter we configured earlier. Opening this will show configuration
 information used by the interpreter.
 
-<img src="{{ site.github.url }}/fig/03-pydev-first.png" width="50%"/>
+<img src="{{ site.github.url }}/fig/03-pydev-first.png""/>
 
 ### Editor Features
 

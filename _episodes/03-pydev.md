@@ -132,8 +132,15 @@ located. When you begin typing, it will replace the `pass` statement with your c
 
 <img src="{{ site.github.url }}/fig/03-pydev-editor.png">
 
-Notice there is syntax highlighting (color coding of keywords and strings), and also the there is an asterisk `*` next to 
-the name of the module in the editor tab. This indicates that the file has been modified and needs to be saved.
+Notice there is syntax highlighting (color coding of keywords and strings), and also the there is an asterisk (`*`) next to 
+the name of the module in the editor tab. This indicates that the file has been modified and needs to be saved. On the
+right hand edge of the editor, there is a outline view of the code. The blue box represents the total extent of the code. 
+Python statments, syntax errors, and the current insertion point are all shown pictorially in the outline view. At the bottom
+of the editor are three status fields. The first shows permissions for the file being edited (`Writable`, `Read Only`, etc.).
+The second shows the edit mode (`Insert` or `Overwrite`) which can be changed by double clicking on the field. The last field
+shows the line and character position of the insertion point.
+
+See the [PyDev Manual](http://www.pydev.org/manual.html) for complete details on how to use the editor.
 
 ### Running My Program
 

@@ -126,6 +126,15 @@ You can either select one of the templates from the list, or just hit **OK** and
 
 ### Editor Features
 
+If you used the `Module: Main` template, which adds a Python main program to the file, you will see something like
+the image below. You can also see that the `pass` statement has been highlighted and this is where the cursor is 
+located. When you begin typing, it will replace the `pass` statement with your code.
+
+<img src="{{ site.github.url }}/fig/03-pydev-editor.png">
+
+Notice there is syntax highlighting (color coding of keywords and strings), and also the there is an asterisk `*` next to 
+the name of the module in the editor tab. This indicates that the file has been modified and needs to be saved.
+
 ### Running My Program
 
 ### Fixing Bugs

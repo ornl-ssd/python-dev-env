@@ -52,8 +52,9 @@ This will open the PyDev Python interpreter preference page as shown below. Now 
 <img src="{{ site.github.url }}/fig/03-pydev-prefs.png" width="50%"/>
 
 You should now see another dialog asking you to select the interpreter. Enter a name
-(anything can be used here, e.g. "anaconda"), then click the **Browse...**. Navigate to the installation location for
-Anaconda, then select the `python` program in the `bin` directory. The image below
+(anything can be used here, e.g. "anaconda"), then click the **Browse...** button. Navigate 
+to the installation location for Anaconda (usually called `anaconda3` in your
+home directory), then select the `python` program in the `bin` directory. The image below
 shows the dialog after the `python` progam was selected. PyDev worked out that this was 
 Python 3.5 and changed the path to correspond to this version.
 
@@ -68,6 +69,28 @@ Finally, you should click on **OK** to save the preference changes.
 
 ### Your First Project
 
+*Now* you are ready to create your first PyDev project. Here is a screenshot of the main window after switching
+to the PyDev perspective. This is for Mac OS X, but it should look similar on Windows and Linux.
+
+<img src="{{ site.github.url }}/fig/03-pydev-main.png"/>
+
+You can ignore most of the icons and menus for now. The first thing to notice is that it is divided into two
+parts. On the left is the PyDev Package Explorer. This is where your projects, packages, and modules will be
+visible. On the right is a big empty area that we will be using to edit Python code soon.
+
+To create a new project, select **File** > **New** > **PyDev Project** to open the *new project wizard*. There are
+many settings that you can change on this dialog, but for now, just give your project a name (e.g. "my_project"). 
+You also probably want to set the **Grammar Version** setting to **3.0 - 3.5** since we'll be using Python 3.5 in
+this tutorial.
+
+<img src="{{ site.github.url }}/fig/03-pydev-new.png" width="50%"/>
+
+When you're done, select the **Finish** button and you should see the project appear in the Package Explorer view.
+Clicking on the small triangle to the left of the project will open it. Notice there are no source files yet, however
+you will see a reference to the "anaconda" interpreter we configured earlier. Opening this will show configuration
+information used by the interpreter.
+
+<img src="{{ site.github.url }}/fig/03-pydev-first.png" width="50%"/>
 
 ### Editor Features
 

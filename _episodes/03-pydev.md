@@ -45,7 +45,24 @@ If this is the first time you've used PyDev, then you may see a dialog pop up li
 
 ![Python not configured dialog]({{ site.github.url }}/fig/03-pydev-dialog.png)
 
-Don't panic! This is just PyDev telling you that it needs to configure the Python environment.
+Don't panic! This is just PyDev telling you that it needs to configure the Python environment. If you're using Anaconda,
+then you'll need to select the **Manual Config** button. This will open the PyDev Python interpreter preference page as
+shown below:
+
+![Python preferences]({{ site.github.url }}/fig/03-pydev-prefs.png)
+
+Next, click on the **New* button and you should see another dialog asking you to select the interpreter. Enter a name
+(anything can be used here, e.g. "anaconda"), then click the **Browse...**. Navigate to the installation location for
+Anaconda, then select the `python` program in the `bin` directory. You can see this below:
+
+![Select interpreter]({{ site.github.url }}/fig/03-pydev-interpreter.png)
+
+Once you've done this, click the **OK** button. If you chose the right program, you should now see a dialog asking if you
+would like a list of folders to be added to the SYSTEM pythonpath. Just click **OK** here.
+
+![Select folders]({{ site.github.url }}/fig/03-pydev-interpreter.png)
+
+Finally, you should click on **OK** to save the preference changes.
 
 ### Your First Project
 

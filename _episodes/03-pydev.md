@@ -60,7 +60,7 @@ Anaconda, then select the `python` program in the `bin` directory. You can see t
 Once you've done this, click the **OK** button. If you chose the right program, you should now see a dialog asking if you
 would like a list of folders to be added to the SYSTEM pythonpath. Just click **OK** here.
 
-<img src="{{ site.github.url }}/fig/03-pydev-interpreter.png" width="50%"/>
+<img src="{{ site.github.url }}/fig/03-pydev-folders.png" width="50%"/>
 
 Finally, you should click on **OK** to save the preference changes.
 

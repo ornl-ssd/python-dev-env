@@ -157,7 +157,7 @@ two choices. You can place the cursor after the `:` and hit **Enter** to start a
 **Shift + Enter** and PyDev will move to the next line automatically. Now type the rest of the function body:
 
 > def fib(n):
->     if n <= 2:
+>     if n <= 1:
 >         return 1
 >     else:
 >         return fib(n-1) + fib(n-2)
@@ -172,6 +172,8 @@ Running the program is easy. Just make sure that the module is selected in the P
 which has popped up below the editor window.
 
 <img src="{{ site.github.url }}/fig/03-pydev-console.png">
+
+But wait a minute! We know that the 10th element in the Fibonacci sequence is 55, not 89. What is going on here?
 
 ### Fixing Bugs
 

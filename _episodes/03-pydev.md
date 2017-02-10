@@ -12,6 +12,10 @@ objectives:
 - "Be familiar with terminology."
 - "Experiment with the software engineering features of Eclipse and PyDev."
 keypoints:
+- "PyDev provides a complete integrated environment for Python development"
+- "Integration with other tools, such as Git version control, are also available"
+- "PyDev is useful for small, medium or large collaborative projects"
+- "PyDev automates many aspects of Python development"
 ---
 
 PyDev is an Eclipse-based development environment for Python programs. It provides a commercial-quality

@@ -181,7 +181,7 @@ But wait a minute! We know that the 10th element in the Fibonacci sequence is 55
 ### Fixing Bugs
 
 Let's run the same Python program, but this time under the control of a debugger. First, let's tell the debugger that
-we want to stop executing when the `print(fib(10))` statement is about to be executed. To do this, we need to set a 
+we want to suspend execution when the `print(fib(10))` statement is about to be executed. To do this, we need to set a 
 *breakpoint* at line 13. Just point to the number `13` in the left hand margin and double click. You should now see a 
 breakpoint marker on the line.
 
@@ -189,8 +189,8 @@ breakpoint marker on the line.
 
 Now, to start the debugger just choose **Run** > **Debug**. The first time you do this, you will see the dialog
 below. This is just to warn you that the perspective is going to switch to the Debug perspective. If you want this
-to happen automatically in the future (and I would recommend doing so), check the *Remember my decision* box and
-click on **Yes**.
+to happen automatically in the future (and I would recommend doing so), check the box next to **Remember my decision** 
+and click on **Yes**.
 
 <img src="{{ site.github.url }}/fig/03-pydev-switch.png">
 
@@ -199,6 +199,30 @@ having to launch a separate tool, PyDev has done it all for you. Here's what you
 
 <img src="{{ site.github.url }}/fig/03-pydev-debug.png">
 
+This looks a little complicated, but it is all layed out pretty logically:
+
+* Across the top is a *toolbar* with a variety of debug commands. Well use some of these in a minute. 
+* Below that is the **Debug** view (top left) which shows the current *call stack*. You can see that the line 
+  `<module> [my_module.py:13]` is highlighted, which tells you that the program is currently
+  suspended at line 13 of my_module.py (where we put the breakpoint.) This view is important for navigating up and down
+  the call stack.
+* To the right is the **Variables** view (top right) which shows all the local and global variables in the program.
+* Behind the Variabls view, but not visible, is the **Breakpoints** view, which lists all the breakpoints you've set.
+* Below the Debug view is the normal editor you're used to using.
+* To the right of the editor is the **Outline** view, which shows a high level outline of the program.
+* Finally, at the bottom is the **Console** view that we've seen before (there are also some other views we're
+  not going to discuss here.
+  
+Now, in order to work out the bug, we're going to tell the program to execute statements one at a time so we can see
+what is going on. We do this by *single stepping* the program. There are three buttons that can step the program:
+
+* **Step Into** <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> - Single step the program, but when a function
+  call is encountered, step *into* the function.
+* **Step Over** <img src="{{ site.github.url }}/fig/03-pydev-step-over.png"> - Single step the program, but when a function
+  call is encountered, step *over* the function (i.e. execute the function as if it was a builtin function).
+* **Step Return** <img src="{{ site.github.url }}/fig/03-pydev-step-return.png"> - Single step the program, but return
+  immediately to where the current function was called from. If the current function is the main program, exit the program.
+ 
 ### Where To Go From Here?
 
  

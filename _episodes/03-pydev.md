@@ -201,18 +201,18 @@ having to launch a separate tool, PyDev has done it all for you. Here's what you
 
 This looks a little complicated, but it is all layed out pretty logically:
 
-* Across the top is a *toolbar* with a variety of debug commands. Well use some of these in a minute. 
-* Below that is the **Debug** view (top left) which shows the current *call stack*. You can see that the line 
-  `<module> [my_module.py:13]` is highlighted, which tells you that the program is currently
-  suspended at line 13 of my_module.py (where we put the breakpoint.) This view is important for navigating up and down
-  the call stack.
-* To the right is the **Variables** view (top right) which shows all the local and global variables in the program.
-* Behind the Variabls view, but not visible, is the **Breakpoints** view, which lists all the breakpoints you've set.
-* Below the Debug view is the normal editor you're used to using. The editor has a marker in it showing the line
-  at which the program is suspended, and this line is also highlighted.
-* To the right of the editor is the **Outline** view, which shows a high level outline of the program.
-* Finally, at the bottom is the **Console** view that we've seen before (there are also some other views we're
-  not going to discuss here.
+1. Across the top is a *toolbar* with a variety of debug commands. Well use some of these in a minute. 
+2. Below that is the **Debug** view (top left) which shows the current *call stack*. You can see that the line 
+   `<module> [my_module.py:13]` is highlighted, which tells you that the program is currently
+   suspended at line 13 of my_module.py (where we put the breakpoint.) This view is important for navigating up and down
+   the call stack.
+3. To the right is the **Variables** view (top right) which shows all the local and global variables in the program.
+4. Behind the Variabls view, but not visible, is the **Breakpoints** view, which lists all the breakpoints you've set.
+5. Below the Debug view is the normal editor you're used to using. The editor has a marker in it showing the line
+   at which the program is suspended, and this line is also highlighted.
+6. To the right of the editor is the **Outline** view, which shows a high level outline of the program.
+7. Finally, at the bottom is the **Console** view that we've seen before (there are also some other views we're
+   not going to discuss here.
   
 Now, in order to work out the bug, we're going to tell the program to execute statements one at a time so we can see
 what is going on. We do this by *single stepping* the program. There are three buttons on the toolbar that we can use
@@ -225,7 +225,7 @@ to do this:
 * <img src="{{ site.github.url }}/fig/03-pydev-step-return.png"> **Step Return** - Single step the program, but return
   immediately to where the current function was called from. If the current function is the main program, exit the program.
  
-So, lets begin by clicking on the <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> Step Into button. When you do this,
+So, lets begin by clicking on the <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> **Step Into** button. When you do this,
 you'll notice that the `fib` function appears in the call stack, and we see the current line in the editor move to the first
 line of the function. Also, notice that the variables view has changed, and now shows the value of the argument `n` that
 was passed into the function.
@@ -239,11 +239,11 @@ and you will see more and more entries for `fib` in the call stack. This is beca
 i.e. it calls itself. We are interested in when `fib` is called with the value 2. Notice that when this happens, the
 `fib` function still takes the second branch of the `if` statement.
 
-AH HA!
+AHA!
 
 We know that the second element of the Fibonacci sequence is 1, so `fib(2)` should return the value 1. Instead, it will
-return the value of `fib(1) + fib(0)` which will evaluate to 2 for our function. Our `if` statement
-should actually be `if n <= **2**:`.
+return the value of `fib(1) + fib(0)` which will evaluate to 2 in our function. Our `if` statement
+should actually be `if n <= `**`2`**`:`.
 
 Now that we've finished debugging, we can click on the <img src="{{ site.github.url }}/fig/03-pydev-terminate.png"> 
 **Terminate** button to end the debug session. 

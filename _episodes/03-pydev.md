@@ -156,11 +156,14 @@ about what could be entered, and when you enter the first "(", PyDev will add ")
 two choices. You can place the cursor after the `:` and hit **Enter** to start a new line, or you can just type 
 **Shift + Enter** and PyDev will move to the next line automatically. Now type the rest of the function body:
 
-> def fib(n):
->     if n <= 1:
->         return 1
->     else:
->         return fib(n-1) + fib(n-2)
+~~~
+ def fib(n):
+     if n <= 1:
+         return 1
+     else:
+         return fib(n-1) + fib(n-2)
+~~~
+{: .python}
 
 Once you've entered this code, all the error markers should disappear. Save the file. At this point you should see something
 like the image below. Now we are ready to run the program.

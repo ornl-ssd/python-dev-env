@@ -190,7 +190,9 @@ breakpoint marker on the line.
 Now, to start the debugger just choose **Run** > **Debug**. The first time you do this, you will see the dialog
 below. This is just to warn you that the perspective is going to switch to the Debug perspective. If you want this
 to happen automatically in the future (and I would recommend doing so), check the *Remember my decision* box and
-enter **Yes**.
+click on **Yes**.
+
+<img src="{{ site.github.url }}/fig/03-pydev-switch.png">
 
 Whoa, everything just changed! Don't worry, this was supposed to happen. You are now in a Python debugger, and rather than
 having to launch a separate tool, PyDev has done it all for you. Here's what you should see:

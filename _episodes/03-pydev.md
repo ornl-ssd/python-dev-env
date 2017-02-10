@@ -6,7 +6,7 @@ questions:
 - "How can I used PyDev to develop Python applications"
 - "What are the main features of PyDev that will help me develop Python programs"
 objectives:
-- "Learn how to install PyDev."
+- "Learn how to configure PyDev."
 - "Learn how to create Python packages and modules."
 - "Understand the basic features of Eclipse."
 - "Be familiar with terminology."

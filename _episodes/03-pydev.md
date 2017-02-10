@@ -171,8 +171,8 @@ like the image below. Now we are ready to run the program.
 <img src="{{ site.github.url }}/fig/03-pydev-fib.png">
 
 Running the program is easy. Just make sure that the module is selected in the Package Explorer view, and choose
-**Run** > **Run As** > **Python Run**. Your program should immediately run, and display the result in a Console view
-which has popped up below the editor window.
+**Run** > **Run**. Your program should immediately run, and the results will be displayed 
+in a Console view which popped up below the editor window.
 
 <img src="{{ site.github.url }}/fig/03-pydev-console.png">
 
@@ -180,6 +180,23 @@ But wait a minute! We know that the 10th element in the Fibonacci sequence is 55
 
 ### Fixing Bugs
 
-### Other Tools
+Let's run the same Python program, but this time under the control of a debugger. First, let's tell the debugger that
+we want to stop executing when the `print(fib(10))` statement is about to be executed. To do this, we need to set a 
+*breakpoint* at line 13. Just point to the number `13` in the left hand margin and double click. You should now see a 
+breakpoint marker on the line.
+
+<img src="{{ site.github.url }}/fig/03-pydev-breakpoint.png">
+
+Now, to start the debugger just choose **Run** > **Debug**. The first time you do this, you will see the dialog
+below. This is just to warn you that the perspective is going to switch to the Debug perspective. If you want this
+to happen automatically in the future (and I would recommend doing so), check the *Remember my decision* box and
+enter **Yes**.
+
+Whoa, everything just changed! Don't worry, this was supposed to happen. You are now in a Python debugger, and rather than
+having to launch a separate tool, PyDev has done it all for you. Here's what you should see:
+
+<img src="{{ site.github.url }}/fig/03-pydev-debug.png">
+
+### Where To Go From Here?
 
  

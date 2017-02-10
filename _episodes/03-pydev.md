@@ -208,21 +208,46 @@ This looks a little complicated, but it is all layed out pretty logically:
   the call stack.
 * To the right is the **Variables** view (top right) which shows all the local and global variables in the program.
 * Behind the Variabls view, but not visible, is the **Breakpoints** view, which lists all the breakpoints you've set.
-* Below the Debug view is the normal editor you're used to using.
+* Below the Debug view is the normal editor you're used to using. The editor has a marker in it showing the line
+  at which the program is suspended, and this line is also highlighted.
 * To the right of the editor is the **Outline** view, which shows a high level outline of the program.
 * Finally, at the bottom is the **Console** view that we've seen before (there are also some other views we're
   not going to discuss here.
   
 Now, in order to work out the bug, we're going to tell the program to execute statements one at a time so we can see
-what is going on. We do this by *single stepping* the program. There are three buttons that can step the program:
+what is going on. We do this by *single stepping* the program. There are three buttons on the toolbar that we can use
+to do this:
 
-* **Step Into** <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> - Single step the program, but when a function
+* <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> **Step Into** - Single step the program, but when a function
   call is encountered, step *into* the function.
-* **Step Over** <img src="{{ site.github.url }}/fig/03-pydev-step-over.png"> - Single step the program, but when a function
+* <img src="{{ site.github.url }}/fig/03-pydev-step-over.png"> **Step Over** - Single step the program, but when a function
   call is encountered, step *over* the function (i.e. execute the function as if it was a builtin function).
-* **Step Return** <img src="{{ site.github.url }}/fig/03-pydev-step-return.png"> - Single step the program, but return
+* <img src="{{ site.github.url }}/fig/03-pydev-step-return.png"> **Step Return** - Single step the program, but return
   immediately to where the current function was called from. If the current function is the main program, exit the program.
  
+So, lets begin by clicking on the <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> Step Into button. When you do this,
+you'll notice that the `fib` function appears in the call stack, and we see the current line in the editor move to the first
+line of the function. Also, notice that the variables view has changed, and now shows the value of the argument `n` that
+was passed into the function.
+
+<img src="{{ site.github.url }}/fig/03-pydev-vars.png">
+
+If we click on <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> again, we can see which branch of the `if`
+statement was taken (the second, since `n` is currently 10.) Keep clicking on 
+<img src="{{ site.github.url }}/fig/03-pydev-step-into.png">
+and you will see more and more entries for `fib` in the call stack. This is because the `fib` function is *recursive*, 
+i.e. it calls itself. We are interested in when `fib` is called with the value 2. Notice that when this happens, the
+`fib` function still takes the second branch of the `if` statement.
+
+AH HA!
+
+We know that the second element of the Fibonacci sequence is 1, so `fib(2)` should return the value 1. Instead, it will
+return the value of `fib(1) + fib(0)` which will evaluate to 2 for our function. Our `if` statement
+should actually be `if n <= **2**:`.
+
+Now that we've finished debugging, we can click on the <img src="{{ site.github.url }}/fig/03-pydev-terminate.png"> 
+**Terminate** button to end the debug session. 
+
 ### Where To Go From Here?
 
  

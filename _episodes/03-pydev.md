@@ -144,6 +144,35 @@ See the [PyDev Manual](http://www.pydev.org/manual.html) for complete details on
 
 ### Running My Program
 
+Let's now add some code to make our program do something. With the `pass` statement selected, replace it with 
+`print(fib(10))`. You'll notice that the word `fib` is underlined in red and there is a white X in the margin. If you hover over either 
+of these, you will see a tooltip popup that says `Undefined variable: fib`. This is because we haven't defined the
+`fib` function yet. This is in contrast to normal Python development, where undefined functions or variables are only
+discovered during execution of the probram.
+
+Next, move the cursor to the line before the `if` statement and enter `def fib(n):`. As you type, you will see PyDev making suggestions
+about what could be entered, and when you enter the first `(`, PyDev will add `):` automatically. This is know as 
+*code completion*, and reduces the amount of typing you need to do significantly. After you type the parameter `n` you have
+two choices. You can place the cursor after the `:` and hit **Enter** to start a new line, or you can just type 
+**Shift + Enter** and PyDev will move to the next line automatically. Now type the rest of the function body:
+
+> def fib(n):
+>     if n <= 2:
+>         return 1
+>     else:
+>         return fib(n-1) + fib(n-2)
+
+Once you've entered this code, all the error markers should disappear. Save the file. At this point you should see something
+like the image below. Now we are ready to run the program.
+
+<img src="{{ site.github.url }}/fig/03-pydev-fib.png">
+
+Running the program is easy. Just make sure that the module is selected in the Package Explorer view, and choose
+**Run** > **Run As** > **Python Run**. Your program should immediately run, and display the result in a Console view
+which has popped up below the editor window.
+
+<img src="{{ site.github.url }}/fig/03-pydev-console.png">
+
 ### Fixing Bugs
 
 ### Other Tools

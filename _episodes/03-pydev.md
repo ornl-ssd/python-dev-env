@@ -150,9 +150,9 @@ of these, you will see a tooltip popup that says `Undefined variable: fib`. This
 `fib` function yet. This is in contrast to normal Python development, where undefined functions or variables are only
 discovered during execution of the probram.
 
-Next, move the cursor to the line before the `if` statement and enter `def fib(n):`. As you type, you will see PyDev making suggestions
-about what could be entered, and when you enter the first `(`, PyDev will add `):` automatically. This is know as 
-*code completion*, and reduces the amount of typing you need to do significantly. After you type the parameter `n` you have
+Next, move the cursor to the line before the `if` statement and enter "def fib(n):". As you type, you will see PyDev making suggestions
+about what could be entered, and when you enter the first "(", PyDev will add "):" automatically. This is know as 
+*code completion*, and reduces the amount of typing you need to do significantly. After you type the parameter "n" you have
 two choices. You can place the cursor after the `:` and hit **Enter** to start a new line, or you can just type 
 **Shift + Enter** and PyDev will move to the next line automatically. Now type the rest of the function body:
 

@@ -14,7 +14,10 @@ keypoints:
 - "Notebooks containing programs and output can be shared."
 ---
 
-## [What is the Jupyter Notebook?](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.ipynb)
+### What is the Jupyter Notebook?
+
+Please follow [this link](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.ipynb)
+for a brief overview of Jupyter Notebook.
 
 > ## Launching the Notebook
 >
@@ -35,6 +38,12 @@ keypoints:
 > to change to that directory (or a parent directory) before launching the app.
 {: .callout}
 
-## [Notebook Basics](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb)
+### Notebook Basics
 
-## [Running Code](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Running%20Code.ipynb)
+Please follow [this link](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb)
+for an overview of the basic operation of the Notebook.
+
+### Running Code
+
+Please follow [this link](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Running%20Code.ipynb)
+for an overview of how to run code in a Notebook.

@@ -1,7 +1,7 @@
 ---
 title: "IPython"
 teaching: 15
-exercises: 15
+exercises: 0
 questions:
 - "How can I use IPython for developing programs"
 objectives:

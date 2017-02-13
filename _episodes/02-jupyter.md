@@ -14,6 +14,12 @@ keypoints:
 - "Notebooks containing programs and output can be shared."
 ---
 
+[What is the Jupyter Notebook](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.ipynb)
+
+[Notebook Basics](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb)
+
+[Running Code](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Running%20Code.ipynb)
+
 *Notebook documents* (or “notebooks”) are documents produced by the *Jupyter notebook app*, which contain both
 computer code (e.g. Python) and rich text elements (paragraph, equations, figures, links, etc...). Notebook 
 documents are both human-readable documents containing the analysis description and the results (figures, tables, etc..) 

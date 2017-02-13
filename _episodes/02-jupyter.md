@@ -14,11 +14,9 @@ keypoints:
 - "Notebooks containing programs and output can be shared."
 ---
 
-[What is the Jupyter Notebook?](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.ipynb)
+##[What is the Jupyter Notebook?](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.ipynb)
 
-[Notebook Basics](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb)
-
-> ### Launching the Notebook
+> ## Launching the Notebook
 >
 > The Jupyter notebook is a server-client application that allows editing and running notebook documents via a 
 > web browser. The Notebook can be executed on a local desktop requiring no internet access or can be installed 
@@ -37,4 +35,6 @@ keypoints:
 > to change to that directory (or a parent directory) before launching the app.
 {: .callout}
 
-[Running Code](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Running%20Code.ipynb)
+##[Notebook Basics](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb)
+
+##[Running Code](https://github.com/jupyter/notebook/blob/master/docs/source/examples/Notebook/Running%20Code.ipynb)

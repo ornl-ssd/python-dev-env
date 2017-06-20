@@ -1,6 +1,6 @@
 ---
 title: "Jupyter Notebooks"
-teaching: 15
+teaching: 40
 exercises: 0
 questions:
 - "How do I use Jupyter Notebooks to write Python programs"

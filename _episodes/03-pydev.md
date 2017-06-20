@@ -1,6 +1,6 @@
 ---
 title: "PyDev"
-teaching: 30
+teaching: 60
 exercises: 0
 questions:
 - "How can I used PyDev to develop Python applications"

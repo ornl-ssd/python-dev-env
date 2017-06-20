@@ -1,6 +1,6 @@
 ---
 title: "IPython"
-teaching: 15
+teaching: 20
 exercises: 0
 questions:
 - "How can I use IPython for developing programs"
